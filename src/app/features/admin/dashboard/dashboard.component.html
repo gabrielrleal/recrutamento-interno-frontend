@@ -1,0 +1,11 @@
+<div class="container-fluid bg-dark text-light min-vh-100 d-flex flex-column">
+  <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom border-secondary">
+    <h1 class="h3">Bem-vindo ao Painel de Administração</h1>
+    <button class="btn btn-outline-light" (click)="logout()" aria-label="Logout">Logout</button>
+  </header>
+
+  <nav class="nav flex-column flex-grow-1">
+    <a class="nav-link text-light" routerLink="/vagas/criar" aria-label="Criar Vaga">Criar Vaga</a>
+    <a class="nav-link text-light" routerLink="/vagas/listar" aria-label="Listar Vagas">Listar Vagas</a>
+  </nav>
+</div>

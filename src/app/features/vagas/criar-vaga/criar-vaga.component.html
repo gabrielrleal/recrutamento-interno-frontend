@@ -1,0 +1,24 @@
+<div class="container d-flex flex-column align-items-center justify-content-center min-vh-100">
+  <div class="card p-4 bg-dark text-light w-100" style="max-width: 800px;">
+    <div class="d-flex justify-content-between">
+        <a routerLink="/administrador/dashboard" class="btn btn-outline-light" aria-label="Dashboard">Dashboard</a>
+        <a routerLink="/vagas/listar" class="btn btn-outline-light" aria-label="Listar Vagas">Listar Vagas</a>
+      </div>
+    <div class="card-body">
+      
+      <h2 class="card-title text-center mb-4">Criar Nova Vaga</h2>
+      <form (ngSubmit)="onSubmit()" [formGroup]="vagaForm">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" id="titulo" class="form-control" formControlName="titulo">
+        </div>
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Descrição</label>
+          <textarea id="descricao" class="form-control" formControlName="descricao"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="vagaForm.invalid">Salvar</button>
+        <a routerLink="/vagas/listar" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+  </div>
+</div>

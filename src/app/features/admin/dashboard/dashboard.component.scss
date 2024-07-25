@@ -1,0 +1,21 @@
+.admin-dashboard {
+    h1 {
+      color: #333;
+    }
+    nav {
+      ul {
+        list-style-type: none;
+        padding: 0;
+        li {
+          margin: 10px 0;
+          a {
+            text-decoration: none;
+            color: #007bff;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }

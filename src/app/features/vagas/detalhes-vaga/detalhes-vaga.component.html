@@ -1,0 +1,27 @@
+<div class="container d-flex flex-column align-items-center justify-content-center min-vh-100">
+  <div class="card p-4 bg-dark text-light w-100" style="max-width: 800px;">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Detalhes da Vaga</h2>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="vaga">
+        <h3>{{ vaga.titulo }}</h3>
+        <p>{{ vaga.descricao }}</p>
+        <p>Status: {{ vaga.status ? 'Ativa' : 'Inativa' }}</p>
+        <h4>Candidaturas</h4>
+        <ul *ngIf="candidaturas.length > 0; else noCandidaturas" class="list-group">
+          <li *ngFor="let candidatura of candidaturas" class="list-group-item bg-dark text-light border-secondary mb-2">
+            <p>ID da Candidatura: {{ candidatura.id }}</p>
+            <p>Data da Candidatura: {{ candidatura.dataCandidatura }}</p>
+            <p>ID do Candidato: {{ candidatura.candidatoId }}</p>
+          </li>
+        </ul>
+        <ng-template #noCandidaturas>
+          <p class="text-center">Não há candidaturas para esta vaga.</p>
+        </ng-template>
+      </div>
+      <a routerLink="/vagas/listar" class="btn btn-secondary mt-4">Voltar</a>
+    </div>
+  </div>
+</div>
