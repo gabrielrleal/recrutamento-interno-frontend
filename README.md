@@ -37,8 +37,8 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
 Inicie o servidor de desenvolvimento com o seguinte comando:
 
-    ```bash
+    
     ng serve
-    ```
+    
 
 Isso iniciará o servidor de desenvolvimento em `http://localhost:4200/`. O aplicativo será recarregado automaticamente quando você fizer alterações nos arquivos.
