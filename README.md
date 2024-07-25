@@ -42,3 +42,6 @@ Inicie o servidor de desenvolvimento com o seguinte comando:
     
 
 Isso iniciará o servidor de desenvolvimento em `http://localhost:4200/`. O aplicativo será recarregado automaticamente quando você fizer alterações nos arquivos.
+
+## Referência ao Backend
+Para configurar e rodar o backend do projeto, siga as instruções na documentação do frontend. https://github.com/gabrielrleal/recrutamento-interno-backend
