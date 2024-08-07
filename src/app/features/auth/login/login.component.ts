@@ -10,10 +10,13 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   senha: string = '';
+  errorMessage: string | null = null; // Adicionada variável para mensagem de erro
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(): void {
+    this.errorMessage = null; // Resetar mensagem de erro
+
     this.authService.login({ email: this.email, senha: this.senha }).subscribe({
       next: (response) => {
         if (response && response.token) {
@@ -26,12 +29,12 @@ export class LoginComponent {
           }
         } else {
           console.error('Login error: Invalid response format', response);
-          // Mostrar mensagem de erro ao usuário
+          this.errorMessage = 'Formato de resposta inválido';
         }
       },
       error: (error) => {
         console.error('Login error:', error);
-        // Mostrar mensagem de erro ao usuário
+        this.errorMessage = 'Erro ao fazer login. Verifique suas credenciais e tente novamente.';
       }
     });
   }

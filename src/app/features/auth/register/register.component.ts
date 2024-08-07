@@ -14,6 +14,7 @@ export class RegisterComponent {
   registerForm: FormGroup;
   isLoading = false;
   errorMessage: string | null = null;
+  successMessage: string | null = null;
 
   roles = [
     { value: RoleEnum.CANDIDATO, viewValue: 'CANDIDATO' },
@@ -34,10 +35,9 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-   
-
     this.isLoading = true;
     this.errorMessage = null;
+    this.successMessage = null;
 
     const { nome, email, senha, role } = this.registerForm.value;
     const newUser = new RegistroUsuario(nome, email, senha, role);
@@ -45,10 +45,15 @@ export class RegisterComponent {
     this.authService.register(newUser).subscribe({
       next: (response) => {
         this.authService.setToken(response.token);
-        this.router.navigate(['/login']);
+        this.successMessage = response.mensagem;
+        //this.router.navigate(['/login']);
       },
       error: (error) => {
-        this.errorMessage = error.message;
+        if (error.error && error.error.mensagem) {
+          this.errorMessage = error.error.mensagem;
+        } else {
+          this.errorMessage = 'Ocorreu um erro durante o registro. Por favor, tente novamente.';
+        }
         this.isLoading = false;
       }
     });

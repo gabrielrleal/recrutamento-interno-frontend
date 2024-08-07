@@ -1,7 +1,20 @@
+<!-- Mensagem de Sucesso -->
+<div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Sucesso!</strong> {{ successMessage }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="successMessage = null"></button>
+</div>
+
+<!-- Mensagem de Erro -->
+<div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Erro!</strong> {{ errorMessage }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="errorMessage = null"></button>
+</div>
+
 <div class="container d-flex align-items-center justify-content-center min-vh-100">
   <div class="card p-4 bg-dark text-light" style="max-width: 400px; width: 100%;">
     <div class="card-body">
       <h2 class="card-title text-center mb-4">Registrar</h2>
+      
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>

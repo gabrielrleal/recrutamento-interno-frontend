@@ -3,4 +3,10 @@ export interface Candidatura {
     vagaId: number;
     candidatoId: number;
     dataCandidatura?: Date;
-  }
+
+}
+
+export interface CandidaturaResponse {
+  candidatura: Candidatura;
+  mensagem: string;
+}
